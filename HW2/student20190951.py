@@ -15,12 +15,11 @@ for row in ws:
 		list.append(sum)
 	row_id += 1
 
-row_id = 1;
 result = []
 for i in list:
-	rank = 1
+	rank = 0
 	for j in list:
-		if i < j:
+		if i <= j:
 			rank += 1
 	result.append(rank)
 
