@@ -17,7 +17,7 @@ for row in ws:
 
 result = []
 for i in list:
-	rank = 0
+	rank = 1 
 	for j in list:
 		if i <= j:
 			rank += 1
