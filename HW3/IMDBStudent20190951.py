@@ -1,6 +1,5 @@
 
-a = input()
-b = input()
+a, b = input().split()
 dic = {}
 
 with open(a, "rt") as f:
