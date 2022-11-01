@@ -1,5 +1,7 @@
+import sys
 
-a, b = input().split()
+a = sys.argv[1]
+b = sys.argv[2]
 dic = {}
 
 with open(a, "rt") as f:

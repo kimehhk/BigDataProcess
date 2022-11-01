@@ -1,6 +1,7 @@
-import datetime as dt
+import sys, datetime as dt
 
-a, b = input().split()
+a = sys.argv[1]
+b = sys.argv[2]
 
 def day_is(m, d, y):
 	days = ['MON','TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN']
