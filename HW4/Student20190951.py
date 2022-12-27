@@ -58,9 +58,9 @@ def handwriting(k):
 		classNumStr = int(fileStr.split('_')[0])
 		vectorUnderTest = img2vector('testDigits/%s' % fileNameStr)
 		classifierResult = classify0(vectorUnderTest, trainingMat, labels, k) //k
-		if (classifierResult != classNumStr): errorCount
+		if (classifierResult != classNumStr): errorCount += 1.0
 	errorT = (errorCount/float(mTest))
-	print(int(errorT))
+	print(errorT)
 
 a = sys.argv[1]
 b = sys.argv[2]
