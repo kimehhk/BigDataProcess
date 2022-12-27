@@ -37,7 +37,7 @@ def img2vector(filename):
 			returnVect[0, 32*i+j] = int(lineStr[j])
 	return returnVect
 
-def handwriting():
+def handwriting(k):
 	labels = []
 	trainingFileList = listdir('trainingDigits')
 	m = len(trainingFileList)
@@ -55,9 +55,10 @@ def handwriting():
 		fileStr = fileNameStr.split('.')[0]
 		classNumStr = int(fileStr.split('_')[0])
 		vectorUnderTest = img2vector('testDigits/%s' % fileNameStr)
-		classifierResult = classify0(vectorUnderTest, trainingMat, labes, 3) //k
-		print("%d, %d" % (classifierResult, classNumStr))
+		classifierResult = classify0(vectorUnderTest, trainingMat, labes, k) //k
 		if (classifierResult != classNumStr): errorCount
-	print("error %f" % (errorCount/float(mTest)))
+	errorT = (errorCount/float(mTest)).trunc()
+	print(errorT)
 
-handwriting()
+for i in range(1, 21)
+	handwriting(i)
