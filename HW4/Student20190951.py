@@ -1,5 +1,6 @@
 import numpy as np
 import operator
+import sys
 from os import listdir
 
 def autoNorm(dataSet):
@@ -61,5 +62,7 @@ def handwriting(k):
 	errorT = (errorCount/float(mTest))
 	print(int(errorT))
 
+a = sys.argv[1]
+b = sys.argv[2]
 for i in range(1, 21):
 	handwriting(i)
