@@ -29,7 +29,7 @@ def classify0(inX, dataSet, labels, k):
     	return sortedClassCount[0][0]
 
 def img2vector(filename):
-	returnVect = zeros((1,1024))
+	returnVect = np.zeros((1,1024))
 	fr = open(filename)
 	for i in range(32):
 		lineStr = fr.readline()
@@ -41,10 +41,11 @@ def handwriting(k):
 	labels = []
 	trainingFileList = listdir('trainingDigits')
 	m = len(trainingFileList)
-	trainingMat = zeros((m, 1024))
+	trainingMat = np.zeros((m, 1024))
 	for i in range(m):
 		fileNameStr = trainingFileList[i]
-		fileStr = int(fileStr.split('_')[0])
+		fileStr = fileNameStr.split('.')[0]
+		classNumStr = int(fileStr.split('_')[0])
 		labels.append(classNumStr)
 		trainingMat[i,:] = img2vector('trainingDigits/%s' % fileNameStr)
 	testFileList = listdir('testDigits')
@@ -55,10 +56,10 @@ def handwriting(k):
 		fileStr = fileNameStr.split('.')[0]
 		classNumStr = int(fileStr.split('_')[0])
 		vectorUnderTest = img2vector('testDigits/%s' % fileNameStr)
-		classifierResult = classify0(vectorUnderTest, trainingMat, labes, k) //k
+		classifierResult = classify0(vectorUnderTest, trainingMat, labels, k) //k
 		if (classifierResult != classNumStr): errorCount
-	errorT = (errorCount/float(mTest)).trunc()
-	print(errorT)
+	errorT = (errorCount/float(mTest))
+	print(int(errorT))
 
-for i in range(1, 21)
+for i in range(1, 21):
 	handwriting(i)
